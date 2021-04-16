@@ -1,0 +1,14 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation localGroovy()
+
+    implementation 'io.github.gradle-nexus:publish-plugin:1.0.0'
+    implementation 'org.jfrog.buildinfo:build-info-extractor-gradle:4.9.10'
+}

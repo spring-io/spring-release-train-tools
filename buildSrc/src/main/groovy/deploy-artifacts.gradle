@@ -1,0 +1,14 @@
+def deployArtifacts = project.task("deployArtifacts")
+deployArtifacts.group = 'Publishing'
+deployArtifacts.description = "Deploys the artifacts to either Artifactory or Maven Central"
+
+
+def isSnapshot = version.endsWith("-SNAPSHOT")
+def isMilestone = !isSnapshot && (version.contains("-M") || version.contains("-RC"))
+
+if (isSnapshot || isMilestone) {
+    deployArtifacts.dependsOn project.tasks.artifactoryPublish
+}
+else {
+    deployArtifacts.dependsOn project.tasks.uploadArchives
+}

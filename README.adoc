@@ -1,0 +1,8 @@
+Allows validating that the GitHub milestone is setup to be on a valid release date.
+
+For example, this would confirm that `2021-04-22T22:48:47Z` was the Thursday after the 3rd Monday of the Month.
+
+[source,bash]
+----
+$ java -jar spring-release-train-tools.jar "--dueOn", "2021-04-22T22:48:47Z","--expectedDayOfWeek" , "THURSDAY", "--expectedMondayCount", "3"
+----
