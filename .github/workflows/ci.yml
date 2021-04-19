@@ -64,7 +64,7 @@ jobs:
           ./gradlew deployArtifacts -PossrhUsername="$OSSRH_TOKEN_USERNAME" -PsonatypePassword="$OSSRH_TOKEN_PASSWORD" -PartifactoryUsername="$ARTIFACTORY_USERNAME" -PartifactoryPassword="$ARTIFACTORY_PASSWORD" --stacktrace --no-parallel
           ./gradlew finalizeDeployArtifacts -PossrhUsername="$OSSRH_TOKEN_USERNAME" -PsonatypePassword="$OSSRH_TOKEN_PASSWORD" -PartifactoryUsername="$ARTIFACTORY_USERNAME" -PartifactoryPassword="$ARTIFACTORY_PASSWORD" --stacktrace --no-parallel
         env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY_NO_HEADER }}
+          GPG_PRIVATE_KEY_NO_HEADER: ${{ secrets.GPG_PRIVATE_KEY_NO_HEADER }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           OSSRH_TOKEN_USERNAME: ${{ secrets.OSSRH_S01_TOKEN_USERNAME }}
           OSSRH_TOKEN_PASSWORD: ${{ secrets.OSSRH_S01_TOKEN_PASSWORD }}
