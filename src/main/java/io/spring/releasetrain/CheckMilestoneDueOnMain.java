@@ -25,6 +25,9 @@ public class CheckMilestoneDueOnMain {
 		try {
 			run(args);
 		}
+		catch (DueOnException e) {
+			throw e;
+		}
 		catch (RuntimeException e) {
 			throw new IllegalArgumentException("Invalid usage. Expecting --dueOn <ISO-8601-DATE> --expectedDayOfWeek (SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY) --expectedMondayCount <int> Got " + Arrays.asList(args), e);
 		}
