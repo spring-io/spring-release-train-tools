@@ -7,7 +7,7 @@ def isSnapshot = version.endsWith("-SNAPSHOT")
 def isMilestone = !isSnapshot && (version.contains("-M") || version.contains("-RC"))
 
 if (isSnapshot || isMilestone) {
-    deployArtifacts.dependsOn project.tasks.artifactoryPublish
+    deployArtifacts.dependsOn project.tasks.artifactoryDeploy
 }
 else {
     deployArtifacts.dependsOn project.tasks.publishToSonatype
