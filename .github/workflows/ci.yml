@@ -72,7 +72,7 @@ jobs:
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
   notify_result:
     name: Check for failures
-    needs: [build_jdk_11, snapshot_tests, sonar_analysis, deploy_artifacts, deploy_docs, deploy_schema]
+    needs: [Build]
     if: always()
     runs-on: ubuntu-latest
     steps:
