@@ -1,0 +1,24 @@
+plugins {
+    id	'com.jfrog.artifactory'
+    id	'spring-publish'
+}
+
+def isSnapshot = version.endsWith("-SNAPSHOT")
+def isMilestone = !isSnapshot && (version.contains("-M") || version.contains("-RC"))
+
+artifactory {
+    contextUrl = 'https://repo.spring.io'
+    publish {
+        repository {
+            repoKey = isSnapshot ? 'libs-snapshot-local' : isMilestone ? 'libs-milestone-local' : 'libs-release-local'
+            if (project.hasProperty("artifactoryUsername")) {
+                username = artifactoryUsername
+                password = artifactoryPassword
+            }
+        }
+        defaults {
+            publications('mavenJava')
+            publishArtifacts = true
+        }
+    }
+}
