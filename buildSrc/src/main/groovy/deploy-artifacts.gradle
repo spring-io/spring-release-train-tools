@@ -10,5 +10,5 @@ if (isSnapshot || isMilestone) {
     deployArtifacts.dependsOn project.tasks.artifactoryPublish
 }
 else {
-    deployArtifacts.dependsOn project.tasks.uploadArchives
+    deployArtifacts.dependsOn project.tasks.publishToSonatype
 }
