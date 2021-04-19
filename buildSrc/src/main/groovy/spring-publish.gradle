@@ -3,5 +3,4 @@ plugins {
 	id	'spring-ossrh'
 	id	'spring-publish-local'
 	id	'deploy-artifacts'
-	id	'finalize-deploy'
 }

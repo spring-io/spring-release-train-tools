@@ -1,6 +1,7 @@
 plugins {
     id	'spring-publications'
     id	'io.github.gradle-nexus.publish-plugin'
+    id	'finalize-deploy'
 }
 
 def isSnapshot = version.endsWith("-SNAPSHOT")
