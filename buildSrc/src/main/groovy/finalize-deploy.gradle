@@ -8,7 +8,7 @@ if (!isSnapshot && !isMilestone && project.hasProperty("ossrhUsername")) {
     project.ext.nexusPassword = project.ossrhPassword
     finalizeDeployArtifacts.dependsOn project.tasks.closeAndReleaseRepository
     project.nexusStaging {
-        packageGroup = 'org.springframework'
+        packageGroup = 'io.spring'
 
         // try for 5 minutes total
         numberOfRetries = 60 // default is 20
