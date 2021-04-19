@@ -2,6 +2,7 @@ plugins {
     id "java"
     id "spring-publish"
     id "deploy-artifacts"
+    id "finalize-deploy"
 }
 
 group 'io.spring.releasetrain'
