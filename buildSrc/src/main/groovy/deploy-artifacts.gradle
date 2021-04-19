@@ -10,5 +10,5 @@ if (isSnapshot || isMilestone) {
     deployArtifacts.dependsOn project.tasks.artifactoryPublish
 }
 else {
-    deployArtifacts.dependsOn project.tasks.publishToSonatype
+    deployArtifacts.dependsOn 'publishToSonatype'
 }
