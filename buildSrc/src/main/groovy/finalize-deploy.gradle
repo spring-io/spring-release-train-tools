@@ -6,7 +6,7 @@ def finalizeDeployArtifacts = project.task("finalizeDeployArtifacts")
 if (!isSnapshot && !isMilestone && project.hasProperty("ossrhUsername")) {
     project.ext.nexusUsername = project.ossrhUsername
     project.ext.nexusPassword = project.ossrhPassword
-    finalizeDeployArtifacts.dependsOn project.tasks.closeAndReleaseRepository
+    finalizeDeployArtifacts.dependsOn 'closeAndReleaseRepository'
     project.nexusStaging {
         packageGroup = 'io.spring'
 
