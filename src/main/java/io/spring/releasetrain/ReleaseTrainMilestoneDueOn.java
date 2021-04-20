@@ -39,7 +39,7 @@ class ReleaseTrainMilestoneDueOn {
 		YearMonth actualYearMonth = YearMonth.from(dueOnDate);
 		LocalDate expectedDate = getExpectedDayTimeFor(actualYearMonth);
 		if (!expectedDate.equals(dueOnDate)) {
-			throw new DueOnException("Expecting " + dueOn + " to be on " + expectedDate + " for expectedDayOfWeek " + this.expectedDayOfWeek + " and expectedDayOfWeek " + this.expectedMondayCount);
+			throw new DueOnException("Expecting " + dueOn + " to be on " + expectedDate + " for expectedDayOfWeek " + this.expectedDayOfWeek + " and expectedMondayCount " + this.expectedMondayCount);
 		}
 	}
 
