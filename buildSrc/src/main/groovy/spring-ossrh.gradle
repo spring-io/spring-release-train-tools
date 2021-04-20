@@ -13,7 +13,7 @@ java {
     withSourcesJar()
 }
 
-def hasSigningKey = project.hasProperty("signing.keyId") || project.findProperty("signingKey")
+def hasSigningKey = project.hasProperty("signingKeyId") || project.hasProperty("signingKey")
 if(hasSigningKey) {
     sign(project)
 }
