@@ -4,5 +4,5 @@ def isMilestone = !isSnapshot && (version.contains("-M") || version.contains("-R
 
 def finalizeDeployArtifacts = project.task("finalizeDeployArtifacts")
 if (!isSnapshot && !isMilestone && project.hasProperty("sonatypeUsername")) {
-    finalizeDeployArtifacts.dependsOn 'closeAndReleaseSonatypeStagingRepository'
+    finalizeDeployArtifacts.dependsOn 'closeAndReleaseStagingRepository'
 }
