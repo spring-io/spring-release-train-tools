@@ -4,5 +4,29 @@ For example, this would confirm that `2021-04-22T22:48:47Z` was the Thursday aft
 
 [source,bash]
 ----
-$ java -jar spring-release-train-tools.jar "--dueOn", "2021-04-22T22:48:47Z","--expectedDayOfWeek" , "THURSDAY", "--expectedMondayCount", "3"
+$ java io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "2021-04-22T22:48:47Z" --expectedDayOfWeek THURSDAY --expectedMondayCount 3 
+----
+
+You can integrate with GitHub Actions using something like this
+
+.github/workflow/spring-releasetrain-milestones.yml
+[source,yml]
+----
+on:
+  milestone:
+    types: [created, opened, edited]
+
+jobs:
+  spring-releasetrain-checks:    
+    name: Check DueOn is on a Release Date
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump GitHub context
+      env:
+        DUE_ON: ${{ github.event.milestone.due_on }}
+      run: |
+        export TOOL_VERSION=0.1.1
+        wget "https://repo.maven.apache.org/maven2/io/spring/releasetrain/spring-release-train-tools/$TOOL_VERSION/spring-release-train-tools-$TOOL_VERSION.jar"
+        java -cp "spring-release-train-tools-$TOOL_VERSION.jar" io.spring.releasetrain.CheckMilestoneDueOnMain --dueOn "$DUE_ON" --expectedDayOfWeek THURSDAY --expectedMondayCount 3
+
 ----
