@@ -28,7 +28,7 @@ void sign(Project project) {
         } else if (signingKey) {
             useInMemoryPgpKeys(signingKey, signingPassword)
         }
-        sign publishing.publications.maven
+        sign publishing.publications.mavenJava
     }
 }
 
