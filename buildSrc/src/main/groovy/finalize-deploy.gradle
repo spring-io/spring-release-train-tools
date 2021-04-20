@@ -3,6 +3,6 @@ def isSnapshot = version.endsWith("-SNAPSHOT")
 def isMilestone = !isSnapshot && (version.contains("-M") || version.contains("-RC"))
 
 def finalizeDeployArtifacts = project.task("finalizeDeployArtifacts")
-if (!isSnapshot && !isMilestone && project.hasProperty("nexusUsername")) {
+if (!isSnapshot && !isMilestone && project.hasProperty("sonatypeUsername")) {
     finalizeDeployArtifacts.dependsOn 'closeAndReleaseRepository'
 }
